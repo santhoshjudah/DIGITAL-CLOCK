@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: black;
+    font-family: sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.h1{
+    margin-top: 3rem;
+    font-size: 3rem;
+    text-align: center;
+    padding: 0 1rem;
+    border-bottom: 2px solid white;
+    background: linear-gradient(90deg,#00dbde #fc00fc);
+}
+.box{
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(90deg,#00dbde #fc00fc);
+    align-items: center;
+    display: flex;
+}
+.clock{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:0 .5rem;
+    width: 70%;
+    height: 8rem;
+    align-items: center;
+    color: #fff;
+    background-color: #1a1a1a;
+    position: relative;
+    border-radius: 1rem;
+    font-size: 4rem;
+    overflow: hidden;
+}
+.clock p{
+    font-size: 1rem;
+}
+.clock::before{
+    content: "" ;
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 90%;
+    height: 8rem;
+    background: linear-gradient(0deg, transparent, transparent,#67ff2b, #ff1313, #ffd812 );
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animate 2s linear infinite;
+}
+.clock::after{
+    content: "" ;
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 90%;
+    height: 8rem;
+    background: linear-gradient(0deg, transparent, transparent,#1783ff, #06d5ff, #0c0cff);
+    z-index: 0;
+    transform-origin: bottom right;
+    animation: animate 2s linear infinite;
+    animation-delay: -1s;
+}
+@keyframes animate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(390deg);
+    }
+}
+.front-clock{
+    text-align: center;
+    padding-top: .6rem;
+    background-color: #0d0d0d;
+    width: 95%;
+    height: 95%;
+    border-radius: 1rem;
+    z-index: 1;
+}
+@media(max-width: 890px){
+    .container{
+        width: 60%;
+    }
+    .clock{
+        font-size: 3rem;
+    }
+}
+@media(max-width: 590px){
+    .container{
+        grid-template-rows: 20% 80%;
+    }
+    h1{
+        margin-top: 0;
+    }
+    .box{
+        display: grid;
+        grid-template-rows: 33% 33% 33%;
+    }
+    .clock{
+        width: 30vw;
+        margin: 0;
+        font-size: 4rem;
+        margin-top: .8rem;
+    }
+}
+#day{
+    color: white;
+    margin-top: 1.5vh;
+}
